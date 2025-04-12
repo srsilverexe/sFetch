@@ -335,7 +335,7 @@ struct ASCIIArt *getASCIIArt() {
 	ASCIIStr->lines = 0;
 
 	FILE *file = NULL;
-	const char *filename = "res/void.txt"; // Caminho relativo fixo
+	const char *filename = RES_PATH "/void.txt";
 
 	if (strstr(OSName, "Void Linux")) {
 		file = fopen(filename, "r");
@@ -370,8 +370,7 @@ struct ASCIIArt *getASCIIArt() {
 		return NULL;
 	}
 
-	rewind(file); // Volta ao início do arquivo para ler novamente
-
+	rewind(file);
 	for (size_t i = 0; i < fileLines; i++) {
 		char buffer[256];
 		if (!fgets(buffer, sizeof(buffer), file)) {
